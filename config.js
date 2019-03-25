@@ -1,17 +1,23 @@
 exports.mysqlConfig = {
     main: {
-        host: '',
-        user: '',
-        password: '',
-        database: ''
+        host: 'lb.thatseed.org',
+        user: 'sustainablility',
+        password: 'mAHBMPj5yCIu9ZbJ',
+        database: 'sustainablility_main'
     }
+
     ,
 
     data: {
-        host: '',
-        user: '',
-        password: '',
-        database: ''
+        host: 'lb.thatseed.org',
+        user: 'sustainablility',
+        password: 'mAHBMPj5yCIu9ZbJ',
+        database: 'sustainablility_data'
     }
+
+};
+
+
+exports.database = {
 
 };
