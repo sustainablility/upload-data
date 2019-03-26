@@ -1,5 +1,5 @@
 let mongoClient = require('mongodb').MongoClient;
-let url = "mongodb://lb.thatseed.org:27017";
+let url = "mongodb://lb.thatseed.org:6666";
 
 mongoClient.connect(url,{
     useNewUrlParser: true
