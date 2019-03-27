@@ -32,6 +32,7 @@ function csvFileHandle(csvString,dataSetID,callback = () => {}) {
         return null;
     }
 
+
     Promise.resolve()
 
         // Connect to database
@@ -86,9 +87,10 @@ function csvFileHandle(csvString,dataSetID,callback = () => {}) {
 
         // Done
         .then((variables) => {
-            return new Promise(() => {
+            return new Promise((resolve) => {
                 variables.done();
                 callback(null,true);
+                resolve()
             })
         })
     ;

@@ -1,13 +1,13 @@
-let {convertCSVToArray} = require('convert-csv-to-array');
+let csvFileHandle = require('./csvFileHandle');
+let log = require('./log');
 
 exports.upload = (requests,response) => {
-    let dataArray = convertCSVToArray(requests.file.buffer.toString(),{
-        type: 'array',
-        separator: ','
+    let datasedID = requests.body.datasetID;
+    let csvString = requests.file.buffer.toString();
+    csvFileHandle.csvFileHandle(csvString,datasedID,(err) => {
+        if (err) {
+            log.error("Handle CSV file error",err);
+        }
+        response.send("");
     });
-    let datasetName = requests.body.datasetName;
-    console.log(datasetName);
-    console.log(dataArray);
-
-    response.send("");
 };
