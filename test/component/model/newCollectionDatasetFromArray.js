@@ -76,6 +76,7 @@ describe("Unit test creating collection dataset from predefined array", function
             .then(function (variables) {
                 return new Promise(function (resolve) {
                     assert.equal(variables.resultFromDatabase.sort().toString(),expectedResult.sort().toString(),"Data does not match");
+                    variables.finished();
                     done();
                 })
             })

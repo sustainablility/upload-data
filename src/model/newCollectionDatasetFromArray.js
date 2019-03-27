@@ -11,17 +11,17 @@ exports.newCollection = newCollection;
  *  rest of them are the data in dataset, just like the normal table.
  *
  *
- * @param name dataset's name
+ * @param datasetID dataset's ID
  * @param array dataset's array
  * @param db db object from database connection
  * @param callback callback
  */
 
-function newCollection(name,array,db,callback = () => {}) {
+function newCollection(datasetID,array,db,callback = () => {}) {
     Promise.resolve()
         .then(() => {
             return new Promise((resolve) => {
-                db.createCollection(name,(err) => {
+                db.createCollection(datasetID,(err) => {
                     if (err) {
                         log.fatal("Unable to Create a new Collection",err);
                         callback({
@@ -35,7 +35,7 @@ function newCollection(name,array,db,callback = () => {}) {
         })
         .then(() => {
             return new Promise((resolve) => {
-                db.collection(name).insertMany(parseArrayForDatabaseCollection(array),(err) => {
+                db.collection(datasetID).insertMany(parseArrayForDatabaseCollection(array),(err) => {
                     if (err) {
                         log.fatal("Unable to Insert the data", err);
                         callback({
