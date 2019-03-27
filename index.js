@@ -6,4 +6,4 @@ let upload = multer({
 });
 
 app.post('/',upload.single("file"),require('./src/upload').upload);
-app.listen(8080);
+app.listen(12345);
