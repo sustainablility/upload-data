@@ -21,6 +21,8 @@ function csvFileHandle(csvString,dataSetID,type,callback = () => {}) {
 
     Promise.resolve()
 
+
+        // Convert CSV string to array
         .then(() => {
             return new Promise((resolve) => {
                 csv({
