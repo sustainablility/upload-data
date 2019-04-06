@@ -15,8 +15,6 @@
  */
 function arrayFormat(array,type) {
 
-    shapeArray(array);
-
     switch (type) {
         
         // In case of no title array
@@ -26,12 +24,14 @@ function arrayFormat(array,type) {
                 title.push(i + 1);
             }
             array.unshift(title);
+            shapeArray(array);
             return array;
 
         case 1:
             let newTitles = renameDuplicatedTitle(array[0]);
             array.shift();
             array.unshift(newTitles);
+            shapeArray(array);
             return array;
 
         case 2:
@@ -43,6 +43,7 @@ function arrayFormat(array,type) {
             let nonDupTitle = renameDuplicatedTitle(newArray[0]);
             newArray.shift();
             newArray.unshift(nonDupTitle);
+            shapeArray(array);
             return newArray;
 
         case 3:
@@ -56,6 +57,7 @@ function arrayFormat(array,type) {
                 newTitle.push(i + 1);
             }
             anotherNewArray.unshift(newTitle);
+            shapeArray(array);
             return anotherNewArray;
     }
 }
@@ -87,18 +89,21 @@ function renameDuplicatedTitle(titleArray) {
 
 /**
  * Make sure that the array is rectangle shape; if not, then use null to fill rest of the space
+ * Also, it would automatically convert the number string into Number datatype
  * @param array
  */
 function shapeArray(array) {
-    let width = 0;
+    let width = array[0].length;
     for (let i = 0,len = array.length;i < len; i ++) {
-        if (array[i].length > width) {
-            width = array[i].length;
+        for (let j = 0;j < width;j++) {
+            if (array[i][j] === undefined) {
+                array[i].push(null);
+            }else {
+                if (!isNaN(array[i][j])) {
+                    array[i][j] = Number(array[i][j]);
+                }
+            }
         }
-    }
-    for (let i = 0,len = array.length;i < len; i ++) {
-        while (array[i].length < width) {
-            array[i].push(null);
-        }
+        array[0].splice(width);
     }
 }
