@@ -1,7 +1,7 @@
 exports.database = {
-    host: 'lb.thatseed.org',
+    host: '104.251.225.136',
     main: 'sustainablility-main',
     dataset: 'sustainablility-dataset',
-    port: 6666,
+    port: 12222,
 
 };
