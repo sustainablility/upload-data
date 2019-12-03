@@ -5,5 +5,5 @@ let upload = multer({
     storage: multer.memoryStorage()
 });
 
-app.post('/',upload.single("file"),require('./src/upload').upload);
+app.post('/',upload.single("file"),require('./src/upload'));
 app.listen(12345);

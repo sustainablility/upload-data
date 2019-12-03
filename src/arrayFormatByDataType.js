@@ -61,8 +61,7 @@ function arrayFormat(array,type) {
             return anotherNewArray;
     }
 }
-
-exports.arrayFormat = arrayFormat;
+module.exports = arrayFormat;
 
 /**
  * Once the function find duplicated things in titleArray, it would add a "+" on one of the duplicated item.

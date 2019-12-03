@@ -1,5 +1,5 @@
 let assert = require('chai').assert;
-let arrayFormat = require('../../src/arrayFormatByDataType');
+let arrayFormat = require('../src/arrayFormatByDataType');
 let sampleArray1 = [
     [
         'a',
