@@ -1,7 +1,7 @@
 exports.database = {
-    host: '104.251.225.136',
-    main: 'sustainablility-main',
-    dataset: 'sustainablility-dataset',
-    port: 12222,
+    host: '45.79.187.245',
+    manage: 'dataset-management',
+    dataset: 'dataset-storage',
+    port: 10101
 
 };

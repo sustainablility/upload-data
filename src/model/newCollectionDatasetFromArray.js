@@ -1,7 +1,5 @@
 let log = require('../log');
 
-exports.newCollection = newCollection;
-
 /**
  *  Create a new collection for dataset database with a specific array
  *
@@ -17,38 +15,21 @@ exports.newCollection = newCollection;
  * @param callback callback
  */
 
-function newCollection(datasetID,array,db,callback = () => {}) {
-    Promise.resolve()
-        .then(() => {
-            return new Promise((resolve) => {
-                db.createCollection(datasetID,(err) => {
-                    if (err) {
-                        log.fatal("Unable to Create a new Collection",err);
-                        callback({
-                            msg: "Unable to Create a new Collection"
-                        })
-                    }else {
-                        resolve()
-                    }
-                });
-            })
-        })
-        .then(() => {
-            return new Promise((resolve) => {
-                db.collection(datasetID).insertMany(parseArrayForDatabaseCollection(array),(err) => {
-                    if (err) {
-                        log.fatal("Unable to Insert the data", err);
-                        callback({
-                            msg: "Unable to Insert the data"
-                        });
-                    }else {
-                        callback(null);
-                        resolve();
-                    }
-                })
-            })
-        })
+async function newCollection(datasetID,array) {
+    let createCollectionResult = await this.datasetDb.createCollection(datasetID).catch(err => {
+        log.fatal("Cannot create collection", err);
+    });
+    if (createCollectionResult === undefined) {
+        return false;
+    }
+    let fillCollectionResult = await this.datasetDb.collection(datasetID).insertMany(parseArrayForDatabaseCollection(array));
+    if (fillCollectionResult.result.ok !== 1){
+        return false;
+    }
+    return true;
 }
+
+module.exports = newCollection;
 
 function parseArrayForDatabaseCollection(array) {
     let insertitems = [];
