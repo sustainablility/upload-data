@@ -5,3 +5,6 @@ exports.database = {
     port: 10101
 
 };
+exports.getUserInfoByUserTokenURL = "https://user.rrworkflow.com/user/info";
+
+exports.datasetManagementURL = "http://127.0.0.1:11111";

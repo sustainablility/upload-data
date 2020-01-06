@@ -98,7 +98,7 @@ let sampleArray4 = [
 describe("Unit Test for data array formation in different data type",function () {
     it('Testing for non-shaped dataset', function (done) {
         let sample = sampleArray4.slice();
-        let result = arrayFormat.arrayFormat(sample,0);
+        let result = arrayFormat(sample,0);
         let expected = [
             [
                 1,
@@ -127,7 +127,7 @@ describe("Unit Test for data array formation in different data type",function ()
 
     it('Type 0, non-title data, and data group in row', function (done) {
         let sample = sampleArray1.slice();
-        let result = arrayFormat.arrayFormat(sample,0);
+        let result = arrayFormat(sample,0);
         let expected = [
             [
                 1,
@@ -158,7 +158,7 @@ describe("Unit Test for data array formation in different data type",function ()
 
         // For normal input:
         let sample1 = sampleArray1.slice();
-        let result = arrayFormat.arrayFormat(sample1,1);
+        let result = arrayFormat(sample1,1);
         let expected = [
             [
                 'a',
@@ -180,7 +180,7 @@ describe("Unit Test for data array formation in different data type",function ()
 
         // For duplicated title:
         let sample2 = sampleArray2.slice();
-        let duplicatedResult = arrayFormat.arrayFormat(sample2,1);
+        let duplicatedResult = arrayFormat(sample2,1);
         let duplicatedExpected = [
             [
                 'a',
@@ -212,7 +212,7 @@ describe("Unit Test for data array formation in different data type",function ()
 
         // For normal data
         let sample1 = sampleArray1.slice();
-        let result = arrayFormat.arrayFormat(sample1,2);
+        let result = arrayFormat(sample1,2);
         let expected = [
             [
                 'a',
@@ -236,7 +236,7 @@ describe("Unit Test for data array formation in different data type",function ()
         // For duplicated Title data
         let sample2 = sampleArray3.slice();
 
-        let anotherResult = arrayFormat.arrayFormat(sample2,2);
+        let anotherResult = arrayFormat(sample2,2);
 
         let anotherExpected = [
             [
@@ -284,7 +284,7 @@ describe("Unit Test for data array formation in different data type",function ()
 
     it('Type 3, non-title data, data group in column', function (done) {
         let sample = sampleArray1.slice();
-        let result = arrayFormat.arrayFormat(sample,3);
+        let result = arrayFormat(sample,3);
         let expected = [
             [
                 1,
